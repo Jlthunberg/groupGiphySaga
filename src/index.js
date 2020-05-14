@@ -9,7 +9,11 @@ import createSagaMiddleware from 'redux-saga';
 import axios from 'axios'; 
 
 //reducer one template, need to change state
-const reducerOne = (state=0, action) => {
+const reducerOne = (state = [], action) => {
+    if(action.type === 'Gliffy' ) {
+        console.log( 'in reducerOne', action.payload);
+        state = action.payload;
+    }
     return state; 
 }
 
@@ -23,7 +27,7 @@ function* searchGiphy (action) {
 try {
     const response = yield axios.post('/api/search', ({search: action.payload})); 
     console.log('in sagaOne', response.data)
-    //yield put ({type: })
+    yield put ( {type: 'Gliffy', payload: response.data } );
 }catch (err) {
     console.log('in sagaOne', err); 
     }
