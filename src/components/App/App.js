@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 
 class App extends Component {
+
+  componentDidMount() {
+      console.log( 'in component mount', this.props );
+  }
 
   render() {
     return (
@@ -13,4 +17,6 @@ class App extends Component {
   
 }
 
-export default App;
+const putStateOnProps = (reduxState) => ( { reduxState } );
+
+export default connect(putStateOnProps)(App);

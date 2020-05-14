@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const dotenv = require( 'dotenv' );
+dotenv.config();
+
+// test to see if GIPHY_API_KEY is available through dotenv
+console.log( 'GIPHY_API_KEY:', process.env.GIPHY_API_KEY );
 
 // Route includes
 const favoriteRouter = require('./routes/favorite.router');
