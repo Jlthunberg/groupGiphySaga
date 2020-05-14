@@ -10,15 +10,17 @@
 
 -/ route (aka Home)
     -search component (input and button)
-        -need input 
+        -Input 
+            - handleChange function that stores in state locally 
         -submit/search button w/ link to get request
+            - handleClick function that does a get request to server (that does a get request to giphy)
     -results list component (map thru results array)
-        -
+            - map through array
     -results item (displays individual item on DOM with favorite button)
-        -
+        -   render item and a button to favorite 
         
 -/favorites route  
     -favorite list component
-        -
+        - 
     -favorite item
         -

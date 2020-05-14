@@ -15,15 +15,15 @@ const reducerOne = (state=0, action) => {
 
 //watcher generator function template 
 function* watcherSaga(action) {
-    //yield takeEvery()
+    yield takeEvery('SET_SEARCH', searchGiphy)
 }
 
 //Saga one template 
-function* sagaOne (action) {
+function* searchGiphy (action) {
 try {
-    const response = yield axios.get(''); 
+    const response = yield axios.post('/api/search', ({search: action.payload})); 
     console.log('in sagaOne', response.data)
-    yield put ({})
+    //yield put ({type: })
 }catch (err) {
     console.log('in sagaOne', err); 
     }

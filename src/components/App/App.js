@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Search from '../Search/Search'; 
 
 class App extends Component {
 
@@ -11,6 +12,7 @@ class App extends Component {
     return (
       <div>
         <h1>Giphy Search!</h1>
+        <Search dispatch = {this.props.dispatch} /> 
       </div>
     );
   }
