@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
-import ResultsItem from '../ResultsItem/ResultsItem'
+import React, { Component } from 'react'; 
+import ResultsItem from '../ResultsItem/ResultsItem'; 
+import {connect} from 'react-redux'; 
 
 export class ResultsList extends Component {
     render() {
         return (
             <div>
+                {/* {JSON.stringify(this.props.reduxState.reducerOne.data)} */}
                 <ul> 
                     {this.props.reduxState.reducerOne.map((gif) => {
                         return (
@@ -17,4 +19,7 @@ export class ResultsList extends Component {
     }
 }
 
-export default ResultsList
+const mapReduxStateToProps = (reduxState) => ({reduxState}); 
+
+export default connect(mapReduxStateToProps)(ResultsList);
+

@@ -5,7 +5,7 @@ export class ResultsItem extends Component {
         return (
             <div>
                 <li>
-                   {JSON.stringify(this.props.gif)}
+                   <img src= {this.props.gif.images.original.url}/>
 
                 </li>
                 
