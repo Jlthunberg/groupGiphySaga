@@ -16,7 +16,7 @@ export class ResultsList extends Component {
                             <ResultsItem key={gif.id} gif= {gif} dispatch = {this.props.dispatch}  />
                         )
                     })}
-                </ul> 
+                </ul> d
             </div>
         )
     }

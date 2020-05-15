@@ -4,7 +4,7 @@ export class FavoritesItem extends Component {
     render() {
         return (
             <div>
-                
+                <img src={this.props.gif.url} /> 
             </div>
         )
     }

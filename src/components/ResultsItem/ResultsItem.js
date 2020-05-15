@@ -34,7 +34,7 @@ export class ResultsItem extends Component {
                    <img src= {this.props.gif.images.original.url}/> 
                    <br/>
                 
-                   <select value={this.state.favorite} onChange={this.handleFavorite}>
+                   <select onChange={this.handleFavorite}>
                         <option value="">❤️</option>
                        <option value="1">funny</option>
                        <option value="2">cohort</option>
@@ -42,7 +42,7 @@ export class ResultsItem extends Component {
                        <option value="4">nsfw</option>
                        <option value="5">meme</option>
                    </select>
-                   <button onClick = {this.favoriteClick}> Save your add </button> 
+                   <button onClick = {this.favoriteClick}>Save To Favorites</button> 
             </div>
         )
     }
