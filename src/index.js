@@ -8,22 +8,11 @@ import {takeEvery, put} from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga'; 
 import axios from 'axios'; 
 
-// const reducerOneState = {
-//     data: [ {
-//         id: '',
-//         embed_url: '',
-//         title: ''
-//     } ]
-// }
-
 //reducer one template, need to change state
 const reducerOne = (state = [], action) => {
     if(action.type === 'Gliffy' ) {
         console.log( 'in reducerOne', action.payload);
         state = action.payload.data;
-    //    let giphyID = action.payload.data.id;
-    //     state = { data: [...state.data, 
-    //         {id: action.payload.id, embed_url: action.payload.embed_url, title: action.payload.title} ]};
     }; 
     console.log('in reducerOne' , state); 
     return state; 
@@ -33,8 +22,21 @@ const reducerOne = (state = [], action) => {
 
 //watcher generator function template 
 function* watcherSaga(action) {
-    yield takeEvery('SET_SEARCH', searchGiphy)
+    yield takeEvery('SET_SEARCH', searchGiphy); 
+    yield takeEvery ('ADD_FAVORITE', addFavorite); 
+} //end ADD_FAVORITE
+
+function* addFavorite (action) {
+    try {
+        const response = yield axios.post('/api/favorite', ({ favorite: action.payload }));
+        console.log('in sagaOne', response);
+        // yield put({ type: 'Gliffy', payload: response.data }); //response back talk w/ put
+    } catch (err) {
+        console.log('in sagaOne', err);
+    }
 }
+
+
 
 //Saga one template 
 function* searchGiphy (action) {
